@@ -1,6 +1,7 @@
 ﻿Imports System.Data
 Imports System.Text
 
+
 Public Class ventas
 
     Dim elementos, i, i2, rowview, test As Integer

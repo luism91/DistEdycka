@@ -26,7 +26,6 @@ Partial Public Class modifproductos
         Me.MenuItem2 = New System.Windows.Forms.MenuItem
         Me.MenuItem6 = New System.Windows.Forms.MenuItem
         Me.MenuItem7 = New System.Windows.Forms.MenuItem
-        Me.MenuItem3 = New System.Windows.Forms.MenuItem
         Me.MenuItem4 = New System.Windows.Forms.MenuItem
         Me.Label1 = New System.Windows.Forms.Label
         Me.txtbusqueda = New System.Windows.Forms.TextBox
@@ -48,7 +47,6 @@ Partial Public Class modifproductos
         Me.Label4 = New System.Windows.Forms.Label
         Me.lstprecio = New System.Windows.Forms.ListBox
         Me.Button3 = New System.Windows.Forms.Button
-        Me.lblmovimientos = New System.Windows.Forms.Label
         Me.SuspendLayout()
         '
         'mainMenu1
@@ -60,7 +58,6 @@ Partial Public Class modifproductos
         '
         Me.MenuItem1.MenuItems.Add(Me.MenuItem5)
         Me.MenuItem1.MenuItems.Add(Me.MenuItem2)
-        Me.MenuItem1.MenuItems.Add(Me.MenuItem3)
         Me.MenuItem1.Text = "Opciones"
         '
         'MenuItem5
@@ -80,11 +77,6 @@ Partial Public Class modifproductos
         'MenuItem7
         '
         Me.MenuItem7.Text = "2 - Guardar"
-        '
-        'MenuItem3
-        '
-        Me.MenuItem3.Checked = True
-        Me.MenuItem3.Text = "Movimientos recientes"
         '
         'MenuItem4
         '
@@ -142,26 +134,26 @@ Partial Public Class modifproductos
         '
         'lstcodigo
         '
-        Me.lstcodigo.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Regular)
+        Me.lstcodigo.Font = New System.Drawing.Font("Tahoma", 6.0!, System.Drawing.FontStyle.Regular)
         Me.lstcodigo.Location = New System.Drawing.Point(0, 56)
         Me.lstcodigo.Name = "lstcodigo"
-        Me.lstcodigo.Size = New System.Drawing.Size(63, 90)
+        Me.lstcodigo.Size = New System.Drawing.Size(75, 82)
         Me.lstcodigo.TabIndex = 12
         Me.lstcodigo.TabStop = False
         '
         'lstdescripcion
         '
-        Me.lstdescripcion.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Regular)
-        Me.lstdescripcion.Location = New System.Drawing.Point(66, 56)
+        Me.lstdescripcion.Font = New System.Drawing.Font("Tahoma", 6.0!, System.Drawing.FontStyle.Regular)
+        Me.lstdescripcion.Location = New System.Drawing.Point(76, 56)
         Me.lstdescripcion.Name = "lstdescripcion"
-        Me.lstdescripcion.Size = New System.Drawing.Size(127, 90)
+        Me.lstdescripcion.Size = New System.Drawing.Size(149, 82)
         Me.lstdescripcion.TabIndex = 13
         Me.lstdescripcion.TabStop = False
         '
         'Label8
         '
         Me.Label8.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.Label8.Location = New System.Drawing.Point(0, 199)
+        Me.Label8.Location = New System.Drawing.Point(0, 192)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(66, 13)
         Me.Label8.Text = "Descripcion"
@@ -169,7 +161,7 @@ Partial Public Class modifproductos
         'Label9
         '
         Me.Label9.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.Label9.Location = New System.Drawing.Point(3, 180)
+        Me.Label9.Location = New System.Drawing.Point(4, 173)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(39, 13)
         Me.Label9.Text = "Codigo"
@@ -186,7 +178,7 @@ Partial Public Class modifproductos
         '
         Me.txtcodigo.Enabled = False
         Me.txtcodigo.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Regular)
-        Me.txtcodigo.Location = New System.Drawing.Point(64, 178)
+        Me.txtcodigo.Location = New System.Drawing.Point(64, 173)
         Me.txtcodigo.MaxLength = 12
         Me.txtcodigo.Name = "txtcodigo"
         Me.txtcodigo.Size = New System.Drawing.Size(68, 18)
@@ -196,7 +188,7 @@ Partial Public Class modifproductos
         'txtdescripcion
         '
         Me.txtdescripcion.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Regular)
-        Me.txtdescripcion.Location = New System.Drawing.Point(64, 199)
+        Me.txtdescripcion.Location = New System.Drawing.Point(64, 192)
         Me.txtdescripcion.MaxLength = 30
         Me.txtdescripcion.Name = "txtdescripcion"
         Me.txtdescripcion.Size = New System.Drawing.Size(173, 18)
@@ -206,7 +198,7 @@ Partial Public Class modifproductos
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.Button1.Location = New System.Drawing.Point(15, 241)
+        Me.Button1.Location = New System.Drawing.Point(13, 231)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(95, 20)
         Me.Button1.TabIndex = 25
@@ -216,7 +208,7 @@ Partial Public Class modifproductos
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.Button2.Location = New System.Drawing.Point(116, 241)
+        Me.Button2.Location = New System.Drawing.Point(114, 231)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(105, 20)
         Me.Button2.TabIndex = 26
@@ -226,7 +218,7 @@ Partial Public Class modifproductos
         'Label7
         '
         Me.Label7.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.Label7.Location = New System.Drawing.Point(3, 219)
+        Me.Label7.Location = New System.Drawing.Point(3, 212)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(39, 13)
         Me.Label7.Text = "Precio"
@@ -234,7 +226,7 @@ Partial Public Class modifproductos
         'txtprecio
         '
         Me.txtprecio.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Regular)
-        Me.txtprecio.Location = New System.Drawing.Point(64, 219)
+        Me.txtprecio.Location = New System.Drawing.Point(64, 211)
         Me.txtprecio.MaxLength = 10
         Me.txtprecio.Name = "txtprecio"
         Me.txtprecio.Size = New System.Drawing.Size(68, 18)
@@ -244,17 +236,17 @@ Partial Public Class modifproductos
         'Label4
         '
         Me.Label4.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.Label4.Location = New System.Drawing.Point(198, 45)
+        Me.Label4.Location = New System.Drawing.Point(224, 45)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(39, 10)
         Me.Label4.Text = "Precio"
         '
         'lstprecio
         '
-        Me.lstprecio.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Regular)
-        Me.lstprecio.Location = New System.Drawing.Point(197, 56)
+        Me.lstprecio.Font = New System.Drawing.Font("Tahoma", 6.0!, System.Drawing.FontStyle.Regular)
+        Me.lstprecio.Location = New System.Drawing.Point(226, 56)
         Me.lstprecio.Name = "lstprecio"
-        Me.lstprecio.Size = New System.Drawing.Size(40, 90)
+        Me.lstprecio.Size = New System.Drawing.Size(46, 82)
         Me.lstprecio.TabIndex = 14
         Me.lstprecio.TabStop = False
         '
@@ -266,21 +258,12 @@ Partial Public Class modifproductos
         Me.Button3.TabIndex = 37
         Me.Button3.Text = "Actualizar"
         '
-        'lblmovimientos
-        '
-        Me.lblmovimientos.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.lblmovimientos.ForeColor = System.Drawing.Color.Red
-        Me.lblmovimientos.Location = New System.Drawing.Point(4, 23)
-        Me.lblmovimientos.Name = "lblmovimientos"
-        Me.lblmovimientos.Size = New System.Drawing.Size(136, 15)
-        '
         'modifproductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.AutoScroll = True
         Me.ClientSize = New System.Drawing.Size(240, 268)
-        Me.Controls.Add(Me.lblmovimientos)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
@@ -333,7 +316,5 @@ Partial Public Class modifproductos
     Friend WithEvents txtprecio As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents lstprecio As System.Windows.Forms.ListBox
-    Friend WithEvents MenuItem3 As System.Windows.Forms.MenuItem
     Friend WithEvents Button3 As System.Windows.Forms.Button
-    Friend WithEvents lblmovimientos As System.Windows.Forms.Label
 End Class

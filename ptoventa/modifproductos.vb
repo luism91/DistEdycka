@@ -55,7 +55,7 @@ Public Class modifproductos
             cmd.CommandText = "UPDATE productos SET descripcion = '" & UCase(txtdescripcion.Text) & "', precio='" & Val(txtprecio.Text) & "' WHERE codigo ='" & txtcodigo.Text & "'"
             cmd.ExecuteNonQuery()
             MsgBox("Producto modificado con exito", MsgBoxStyle.OkOnly, "Modificar Productos")
-            lblmovimientos.Text = "Cambios en productos: " & conteo
+
             ReDim Preserve log(0 To UBound(log) + 1)
             log(mov) = "CAMBIOS en: ->" & UCase(txtdescripcion.Text) & "// $-> " & Val(txtprecio.Text) & ""
             mov = mov + 1
@@ -84,7 +84,7 @@ Public Class modifproductos
                 cmd.ExecuteNonQuery()
                 'poblartablas(3, 0)
                 ReDim Preserve log(0 To UBound(log) + 1)
-                lblmovimientos.Text = "Cambios en productos: " & mov
+
                 log(mov) = "BAJA ->" & UCase(lstdescripcion.Text) & ""
                 mov = mov + 1
                 conteo = conteo + 1
@@ -107,7 +107,6 @@ Public Class modifproductos
                 cmd.CommandText = "INSERT INTO productos(codigo,descripcion,precio) VALUES('" & txtcodigo.Text & "','" & UCase(txtdescripcion.Text) & "','" & Val(txtprecio.Text) & "')"
                 cmd.ExecuteNonQuery()
                 MsgBox("Producto agregado con exito", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Modificar Productos")
-                lblmovimientos.Text = "Cambios en productos: " & mov
                 ReDim Preserve log(0 To UBound(log) + 1)
                 log(mov) = "ALTA ->" & UCase(txtdescripcion.Text) & ""
                 conteo = conteo + 1
@@ -157,22 +156,4 @@ Public Class modifproductos
             e.Handled = True
         End If
     End Sub
-
-
-    Private Sub MenuItem3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem3.Click
-        Dim logcambios As New logcambios
-        logcambios.Show()
-        Me.Hide()
-    End Sub
-
-    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
-        mov = 0
-        conteo = 1
-        lblmovimientos.Text = Nothing
-        poblartablas(3, 0)
-        txtbusqueda.Text = ""
-        tablaquery.RowFilter = ("codigo LIKE '" & txtbusqueda.Text & "%'")
-    End Sub
-
-    
 End Class

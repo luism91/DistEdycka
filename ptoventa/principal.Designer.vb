@@ -28,6 +28,7 @@ Partial Public Class principal
         Me.Label1 = New System.Windows.Forms.Label
         Me.Button2 = New System.Windows.Forms.Button
         Me.Button3 = New System.Windows.Forms.Button
+        Me.Button4 = New System.Windows.Forms.Button
         Me.SuspendLayout()
         '
         'mainMenu1
@@ -40,16 +41,16 @@ Partial Public Class principal
         '
         'btnventas
         '
-        Me.btnventas.Location = New System.Drawing.Point(25, 117)
+        Me.btnventas.Location = New System.Drawing.Point(25, 82)
         Me.btnventas.Name = "btnventas"
         Me.btnventas.Size = New System.Drawing.Size(190, 27)
         Me.btnventas.TabIndex = 0
         Me.btnventas.TabStop = False
-        Me.btnventas.Text = "&Pedidos/Ventas"
+        Me.btnventas.Text = "&Ventas"
         '
         'btncorte
         '
-        Me.btncorte.Location = New System.Drawing.Point(25, 157)
+        Me.btncorte.Location = New System.Drawing.Point(25, 183)
         Me.btncorte.Name = "btncorte"
         Me.btncorte.Size = New System.Drawing.Size(190, 27)
         Me.btncorte.TabIndex = 1
@@ -58,7 +59,7 @@ Partial Public Class principal
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(25, 76)
+        Me.Button1.Location = New System.Drawing.Point(25, 148)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(190, 27)
         Me.Button1.TabIndex = 2
@@ -76,7 +77,7 @@ Partial Public Class principal
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(25, 34)
+        Me.Button2.Location = New System.Drawing.Point(25, 115)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(190, 27)
         Me.Button2.TabIndex = 6
@@ -91,12 +92,22 @@ Partial Public Class principal
         Me.Button3.TabIndex = 8
         Me.Button3.Text = "Generar Respaldo"
         '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(25, 49)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(190, 27)
+        Me.Button4.TabIndex = 10
+        Me.Button4.TabStop = False
+        Me.Button4.Text = "&Carga/Devolución"
+        '
         'principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.AutoScroll = True
         Me.ClientSize = New System.Drawing.Size(240, 268)
+        Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label1)
@@ -116,5 +127,6 @@ Partial Public Class principal
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents Button4 As System.Windows.Forms.Button
 
 End Class

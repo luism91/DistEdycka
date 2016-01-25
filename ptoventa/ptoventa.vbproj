@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{7A892FD7-99F9-443B-B20E-34823635A7FE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -110,12 +110,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Funciones.vb" />
-    <Compile Include="logcambios.Designer.vb">
-      <DependentUpon>logcambios.vb</DependentUpon>
-    </Compile>
-    <Compile Include="logcambios.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="modifproductos.Designer.vb">
       <DependentUpon>modifproductos.vb</DependentUpon>
     </Compile>
@@ -135,6 +129,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ptoventaDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ptoventaDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ventas.Designer.vb">
       <DependentUpon>ventas.vb</DependentUpon>
     </Compile>
@@ -153,10 +152,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="corte.resx">
       <DependentUpon>corte.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="logcambios.resx">
-      <DependentUpon>logcambios.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="modifproductos.resx">
@@ -181,8 +176,21 @@
   <ItemGroup>
     <Content Include="apple1.ico" />
     <Content Include="ptoventa.sdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ptoventaDataSet.xsc">
+      <DependentUpon>ptoventaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ptoventaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ptoventaDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ptoventaDataSet.xss">
+      <DependentUpon>ptoventaDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.VisualBasic.targets" />
   <ProjectExtensions>

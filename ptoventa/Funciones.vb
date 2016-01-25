@@ -17,9 +17,9 @@ Module Funciones
     Public cmd As New SqlCeCommand
     'Codigo para cargar productos y agregar notas nuevas
     Public conn As New SqlCeConnection("Data Source=\Program Files\ptoventa\ptoventa.sdf")
-    Public dataprod As New SqlCeDataAdapter("SELECT * FROM productos ORDER BY codigo ASC", conn)
+    Public dataprod As New SqlCeDataAdapter("SELECT * FROM productos ORDER BY upc ASC", conn)
     Public datapedi As New SqlCeDataAdapter("SELECT * FROM ventas", conn)
-    Public dataCargarClientes As New SqlCeDataAdapter("SELECT * FROM clientes ORDER BY codigocliente ASC", conn)
+    Public dataCargarClientes As New SqlCeDataAdapter("SELECT * FROM clientes order by codigocliente ASC", conn)
     Public dsped, dscorte, dsprod, dsclientes, dsdetalleNota As New DataSet
     Public mov As Integer = 0
     Public conteo As Integer = 1

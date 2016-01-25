@@ -6,7 +6,107 @@ ptoventa
 </name>
 </assembly>
 <members>
-<member name="P:ptoventa.My.Resources.Resources.ResourceManager">
+<member name="T:ptoventa.ptoventaDataSet.cargaDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:ptoventa.ptoventaDataSet.clientesDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:ptoventa.ptoventaDataSet.detalle_cargaDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:ptoventa.ptoventaDataSet.detalle_ventasDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:ptoventa.ptoventaDataSet.productosDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:ptoventa.ptoventaDataSet.ventasDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:ptoventa.ptoventaDataSet.cargaRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:ptoventa.ptoventaDataSet.clientesRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:ptoventa.ptoventaDataSet.detalle_cargaRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:ptoventa.ptoventaDataSet.detalle_ventasRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:ptoventa.ptoventaDataSet.productosRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:ptoventa.ptoventaDataSet.ventasRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:ptoventa.ptoventaDataSet.cargaRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:ptoventa.ptoventaDataSet.clientesRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:ptoventa.ptoventaDataSet.detalle_cargaRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:ptoventa.ptoventaDataSet.detalle_ventasRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:ptoventa.ptoventaDataSet.productosRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:ptoventa.ptoventaDataSet.ventasRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:ptoventa.ptoventaDataSet">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:ptoventa.ptoventaDataSetTableAdapters.cargaTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:ptoventa.ptoventaDataSetTableAdapters.clientesTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:ptoventa.ptoventaDataSetTableAdapters.detalle_cargaTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:ptoventa.ptoventaDataSetTableAdapters.detalle_ventasTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:ptoventa.ptoventaDataSetTableAdapters.productosTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:ptoventa.ptoventaDataSetTableAdapters.ventasTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="P:ptoventa.My.Resources.Resources.ResourceManager">
 	<summary>
    Returns the cached ResourceManager instance used by this class.
 </summary>
