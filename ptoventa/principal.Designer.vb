@@ -41,7 +41,7 @@ Partial Public Class principal
         '
         'btnventas
         '
-        Me.btnventas.Location = New System.Drawing.Point(25, 82)
+        Me.btnventas.Location = New System.Drawing.Point(25, 134)
         Me.btnventas.Name = "btnventas"
         Me.btnventas.Size = New System.Drawing.Size(190, 27)
         Me.btnventas.TabIndex = 0
@@ -50,7 +50,7 @@ Partial Public Class principal
         '
         'btncorte
         '
-        Me.btncorte.Location = New System.Drawing.Point(25, 183)
+        Me.btncorte.Location = New System.Drawing.Point(25, 167)
         Me.btncorte.Name = "btncorte"
         Me.btncorte.Size = New System.Drawing.Size(190, 27)
         Me.btncorte.TabIndex = 1
@@ -59,7 +59,7 @@ Partial Public Class principal
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(25, 148)
+        Me.Button1.Location = New System.Drawing.Point(25, 35)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(190, 27)
         Me.Button1.TabIndex = 2
@@ -77,7 +77,7 @@ Partial Public Class principal
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(25, 115)
+        Me.Button2.Location = New System.Drawing.Point(25, 68)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(190, 27)
         Me.Button2.TabIndex = 6
@@ -94,7 +94,7 @@ Partial Public Class principal
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(25, 49)
+        Me.Button4.Location = New System.Drawing.Point(25, 101)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(190, 27)
         Me.Button4.TabIndex = 10

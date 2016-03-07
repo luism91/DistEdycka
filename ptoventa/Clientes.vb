@@ -16,6 +16,7 @@ Public Class clientes
         If conn.State = ConnectionState.Closed Then
             conn.Open()
         End If
+        SellModeClient = False
 
         poblartablas(4, 0)
         lstnombre.DataSource = tablaclientes

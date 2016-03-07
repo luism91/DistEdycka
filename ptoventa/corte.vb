@@ -129,7 +129,7 @@ Public Class corte
 
     End Sub
 
-    Private Sub MenuItem3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem3.Click
+    Private Sub MenuItem3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
         If MsgBox("Deseas liquidar las ventas en la lista?", MsgBoxStyle.Information + MsgBoxStyle.OkCancel) = MsgBoxResult.Ok Then
             Try

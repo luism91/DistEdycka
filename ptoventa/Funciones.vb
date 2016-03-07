@@ -9,23 +9,24 @@ Imports System.IO
 
 Module Funciones
     
-    Public fila, mover, generarnota, codventa, indice, cvCargarNota, i, elementos, optcorte, dia, mes, anio, dia1, mes1, anio1, ccliente As Integer
+    Public fila, mover, generarnota, codventa, indice, cvCargarNota, i, elementos, optcorte, dia, mes, anio, dia1, mes1, anio1, ccliente, diasemana, CodigoCargaVentas As Integer
     Public desc, uni, codigo, fecharespaldo As String
     Public importe, precio, cantinput, cantcargar, preimporte, total As Decimal
     Public cantidad As Double
-    Public tabladetallesnotas, tablaproductosnota, tablacargas, tablaquery, tablaclientes As New DataView
+    Public tabladetallesnotas, tablaproductosnota, tablacargas, tablaquery, tablaclientes, tablaProdCarga, tablaProdDevolucion As New DataView
     Public cmd As New SqlCeCommand
     'Codigo para cargar productos y agregar notas nuevas
     Public conn As New SqlCeConnection("Data Source=\Program Files\ptoventa\ptoventa.sdf")
-    Public dataprod As New SqlCeDataAdapter("SELECT * FROM productos ORDER BY upc ASC", conn)
+    Public dataprod As New SqlCeDataAdapter("SELECT * FROM productos ORDER BY codigo ASC", conn)
     Public datapedi As New SqlCeDataAdapter("SELECT * FROM ventas", conn)
-    Public dataCargarClientes As New SqlCeDataAdapter("SELECT * FROM clientes order by codigocliente ASC", conn)
-    Public dsped, dscorte, dsprod, dsclientes, dsdetalleNota As New DataSet
+
+    Public dsped, dscorte, dsprod, dsclientes, dsdetalleNota, dsProdCarga, dsCargaNueva, dsProdDevolucion As New DataSet
     Public mov As Integer = 0
     Public conteo As Integer = 1
+    Public SellModeClient As Boolean = False
     Public log(0) As String
 
-
+    
     Public Sub poblartablas(ByVal opt As Integer, ByVal optcorte As Integer)
         If opt = 0 Then
             Try
@@ -52,7 +53,7 @@ Module Funciones
             End If
         ElseIf opt = 2 Then
             Try
-                Dim dataCargarDetalleNota As New SqlCeDataAdapter("SELECT p.[descripcion],p.[precio],d.[codigo],d.[codigoventa],d.[cantidad] FROM productos AS P " & _
+                Dim dataCargarDetalleNota As New SqlCeDataAdapter("SELECT p.[descripcion],d.[codigo],d.[codigoventa],d.[descuento],d.[cantidad] FROM productos AS P " & _
                "INNER JOIN [detalle_ventas] AS d ON p.[codigo] = d.[codigo] " & _
                "WHERE d.[codigoventa]='" & cvCargarNota & "' ", conn)
                 dsdetalleNota.Clear()
@@ -61,22 +62,80 @@ Module Funciones
                 MsgBox(ex.Message, MsgBoxStyle.OkOnly + MsgBoxStyle.Critical)
             End Try
         ElseIf opt = 3 Then
-            Try
-                dsprod.Clear()
-                dataprod.Fill(dsprod, "productos2")
-                tablaquery.Table = dsprod.Tables("productos2")
-                tablaquery.Sort = "codigo ASC"
-            Catch ex As Exception
-                MsgBox(ex.Message, MsgBoxStyle.OkOnly + MsgBoxStyle.Critical, "Error")
-            End Try
+            'Evaluar si es modo venta o modo de modificacion de productos
+            If SellModeClient = False Then
+                Try
+                    dsprod.Clear()
+                    dataprod.Fill(dsprod, "productos2")
+                    tablaquery.Table = dsprod.Tables("productos2")
+                    tablaquery.Sort = "codigo ASC"
+                Catch ex As Exception
+                    MsgBox(ex.Message, MsgBoxStyle.OkOnly + MsgBoxStyle.Critical, "Error")
+                End Try
+            Else
+
+                'Cargar productos de carga del dia en nota de ventas para poder insertar los que haya existentes
+                Dim dataProdCarga As New SqlCeDataAdapter("SELECT p.[upc],p.[codigo],p.[descripcion],p.[precio],p.[precio1],p.[precio2],c.[cantidad]" & _
+                     "FROM productos AS p " & _
+                     "INNER JOIN [detalle_carga] AS c ON p.[codigo] = c.[codigo] " & _
+                     "WHERE c.[cantidad] > 0 AND c.[codigocarga] = " & CodigoCargaVentas & " " & _
+                     "ORDER BY c.[codigo] ASC", conn)
+                Try
+                    dsProdCarga.Clear()
+                    dataProdCarga.Fill(dsProdCarga, "productos")
+                    tablaquery.Table = dsProdCarga.Tables("productos")
+                    tablaquery.Sort = "codigo ASC"
+                Catch ex As Exception
+                    MsgBox(ex.Message, MsgBoxStyle.OkOnly + MsgBoxStyle.Critical, "Error")
+                End Try
+
+            End If
+
         ElseIf opt = 4 Then
+            'Evaluar si es modo venta o modo de visualizacion de clientes
             Try
-                dsclientes.Clear()
-                dataCargarClientes.Fill(dsclientes, "clientes")
-                tablaclientes.Table = dsclientes.Tables("clientes")
+                Dim query1 As String = "SELECT * FROM clientes"
+                Dim query2 As String = "SELECT * FROM clientes where grupocliente= 0 OR grupocliente = " & diasemana & "  order by codigocliente ASC"
+                If SellModeClient = False Then
+                    Dim dataCargarClientes As New SqlCeDataAdapter(query1, conn)
+                    dsclientes.Clear()
+                    dataCargarClientes.Fill(dsclientes, "clientes")
+                    tablaclientes.Table = dsclientes.Tables("clientes")
+                Else
+                    Dim dataCargarClientes As New SqlCeDataAdapter(query2, conn)
+                    dsclientes.Clear()
+                    dataCargarClientes.Fill(dsclientes, "clientes")
+                    tablaclientes.Table = dsclientes.Tables("clientes")
+                End If
+
             Catch ex As Exception
                 MsgBox(ex.Message, MsgBoxStyle.OkOnly + MsgBoxStyle.Critical, "Error")
             End Try
+        ElseIf opt = 5 Then
+            'Cargar la tabla con todas las cargas existentes y en el codigo obtener la maxima
+            Dim dataCargaProductos As New SqlCeDataAdapter("SELECT MAX(codigocarga) from carga", conn)
+            Try
+                dsCargaNueva.Clear()
+                dataCargaProductos.Fill(dsCargaNueva, "carga")
+                tablaProdCarga.Table = dsCargaNueva.Tables("carga")
+            Catch ex As Exception
+                MsgBox(ex.Message, MsgBoxStyle.OkOnly + MsgBoxStyle.Critical, "Error")
+            End Try
+        ElseIf opt = 6 Then
+            'Cargar productos de carga del dia en nota de ventas para poder insertar los que haya existentes
+            Dim dataProdCarga As New SqlCeDataAdapter("SELECT p.[upc],p.[codigo],p.[descripcion],p.[precio],p.[precio1],p.[precio2],c.[cantidad]" & _
+                 "FROM productos AS p " & _
+                 "INNER JOIN [detalle_carga] AS c ON p.[codigo] = c.[codigo] " & _
+                 "WHERE c.[cantidad] > 0 AND c.[codigocarga] = " & CodigoCargaVentas & " " & _
+                 "ORDER BY c.[codigo]", conn)
+            Try
+                dsProdDevolucion.Clear()
+                dataProdCarga.Fill(dsProdDevolucion, "productos")
+                tablaProdDevolucion.Table = dsProdDevolucion.Tables("productos")
+            Catch ex As Exception
+                MsgBox(ex.Message, MsgBoxStyle.OkOnly + MsgBoxStyle.Critical, "Error")
+            End Try
+
         End If
     End Sub
 
@@ -91,5 +150,7 @@ Module Funciones
         End Try
 
     End Sub
+
+    
 
 End Module

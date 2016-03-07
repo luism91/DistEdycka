@@ -27,7 +27,6 @@ Partial Public Class ventas
         Me.MenuItem3 = New System.Windows.Forms.MenuItem
         Me.MenuItem2 = New System.Windows.Forms.MenuItem
         Me.MenuItem6 = New System.Windows.Forms.MenuItem
-        Me.MenuItem5 = New System.Windows.Forms.MenuItem
         Me.MenuItem7 = New System.Windows.Forms.MenuItem
         Me.MenuItem4 = New System.Windows.Forms.MenuItem
         Me.Label2 = New System.Windows.Forms.Label
@@ -36,37 +35,29 @@ Partial Public Class ventas
         Me.txtbusqueda = New System.Windows.Forms.TextBox
         Me.txtcantidad = New System.Windows.Forms.TextBox
         Me.btnagregar = New System.Windows.Forms.Button
-        Me.lstdescripcion2 = New System.Windows.Forms.ListBox
-        Me.lstprecio2 = New System.Windows.Forms.ListBox
         Me.lstcantidad = New System.Windows.Forms.ListBox
         Me.lstdescripcion = New System.Windows.Forms.ListBox
         Me.lstprecio = New System.Windows.Forms.ListBox
         Me.lstimporte = New System.Windows.Forms.ListBox
         Me.Label4 = New System.Windows.Forms.Label
         Me.lbimporte = New System.Windows.Forms.Label
-        Me.Label5 = New System.Windows.Forms.Label
         Me.lstcodigo = New System.Windows.Forms.ListBox
-        Me.lstcodigo2 = New System.Windows.Forms.ListBox
         Me.Label6 = New System.Windows.Forms.Label
         Me.Label7 = New System.Windows.Forms.Label
         Me.Label8 = New System.Windows.Forms.Label
         Me.Label9 = New System.Windows.Forms.Label
         Me.Label10 = New System.Windows.Forms.Label
         Me.Panel1 = New System.Windows.Forms.Panel
-        Me.Button1 = New System.Windows.Forms.Button
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox
-        Me.Label11 = New System.Windows.Forms.Label
-        Me.Label12 = New System.Windows.Forms.Label
-        Me.Label13 = New System.Windows.Forms.Label
-        Me.Label14 = New System.Windows.Forms.Label
-        Me.Label15 = New System.Windows.Forms.Label
-        Me.lstimp4 = New System.Windows.Forms.ListBox
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton
+        Me.n = New System.IO.Ports.SerialPort(Me.components)
+        Me.lstdescripcion2 = New System.Windows.Forms.ListBox
+        Me.cmbtipoprecio = New System.Windows.Forms.ComboBox
+        Me.lstprecio1 = New System.Windows.Forms.ListBox
+        Me.lstcantidad2 = New System.Windows.Forms.ListBox
+        Me.lstprecio2 = New System.Windows.Forms.ListBox
         Me.lstprecio3 = New System.Windows.Forms.ListBox
-        Me.lstdescripcion3 = New System.Windows.Forms.ListBox
-        Me.lstcantidad3 = New System.Windows.Forms.ListBox
-        Me.Label16 = New System.Windows.Forms.Label
-        Me.SP = New System.IO.Ports.SerialPort(Me.components)
-        Me.lblcantidad = New System.Windows.Forms.Label
+        Me.lstupc = New System.Windows.Forms.ListBox
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -92,7 +83,6 @@ Partial Public Class ventas
         'MenuItem2
         '
         Me.MenuItem2.MenuItems.Add(Me.MenuItem6)
-        Me.MenuItem2.MenuItems.Add(Me.MenuItem5)
         Me.MenuItem2.MenuItems.Add(Me.MenuItem7)
         Me.MenuItem2.MenuItems.Add(Me.MenuItem4)
         Me.MenuItem2.Text = "Opciones"
@@ -100,10 +90,6 @@ Partial Public Class ventas
         'MenuItem6
         '
         Me.MenuItem6.Text = "Cargar Nota"
-        '
-        'MenuItem5
-        '
-        Me.MenuItem5.Text = "Imprimir pedido"
         '
         'MenuItem7
         '
@@ -124,17 +110,17 @@ Partial Public Class ventas
         'Label3
         '
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.Label3.Location = New System.Drawing.Point(4, 103)
+        Me.Label3.Location = New System.Drawing.Point(6, 119)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(61, 20)
+        Me.Label3.Size = New System.Drawing.Size(37, 20)
         Me.Label3.Text = "Cant."
         '
         'ComboBox1
         '
         Me.ComboBox1.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.ComboBox1.Location = New System.Drawing.Point(57, 3)
+        Me.ComboBox1.Location = New System.Drawing.Point(4, 3)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(163, 19)
+        Me.ComboBox1.Size = New System.Drawing.Size(216, 19)
         Me.ComboBox1.TabIndex = 5
         Me.ComboBox1.TabStop = False
         '
@@ -150,7 +136,7 @@ Partial Public Class ventas
         'txtcantidad
         '
         Me.txtcantidad.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Regular)
-        Me.txtcantidad.Location = New System.Drawing.Point(42, 101)
+        Me.txtcantidad.Location = New System.Drawing.Point(49, 119)
         Me.txtcantidad.Name = "txtcantidad"
         Me.txtcantidad.Size = New System.Drawing.Size(35, 19)
         Me.txtcantidad.TabIndex = 7
@@ -159,35 +145,17 @@ Partial Public Class ventas
         'btnagregar
         '
         Me.btnagregar.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.btnagregar.Location = New System.Drawing.Point(84, 100)
+        Me.btnagregar.Location = New System.Drawing.Point(91, 118)
         Me.btnagregar.Name = "btnagregar"
         Me.btnagregar.Size = New System.Drawing.Size(59, 20)
         Me.btnagregar.TabIndex = 8
         Me.btnagregar.TabStop = False
-        Me.btnagregar.Text = "&Agregar"
-        '
-        'lstdescripcion2
-        '
-        Me.lstdescripcion2.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Regular)
-        Me.lstdescripcion2.Location = New System.Drawing.Point(4, 66)
-        Me.lstdescripcion2.Name = "lstdescripcion2"
-        Me.lstdescripcion2.Size = New System.Drawing.Size(158, 28)
-        Me.lstdescripcion2.TabIndex = 9
-        Me.lstdescripcion2.TabStop = False
-        '
-        'lstprecio2
-        '
-        Me.lstprecio2.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Regular)
-        Me.lstprecio2.Location = New System.Drawing.Point(174, 66)
-        Me.lstprecio2.Name = "lstprecio2"
-        Me.lstprecio2.Size = New System.Drawing.Size(45, 28)
-        Me.lstprecio2.TabIndex = 10
-        Me.lstprecio2.TabStop = False
+        Me.btnagregar.Text = " Agregar"
         '
         'lstcantidad
         '
         Me.lstcantidad.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Regular)
-        Me.lstcantidad.Location = New System.Drawing.Point(0, 208)
+        Me.lstcantidad.Location = New System.Drawing.Point(0, 174)
         Me.lstcantidad.Name = "lstcantidad"
         Me.lstcantidad.Size = New System.Drawing.Size(24, 387)
         Me.lstcantidad.TabIndex = 11
@@ -196,7 +164,7 @@ Partial Public Class ventas
         'lstdescripcion
         '
         Me.lstdescripcion.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Regular)
-        Me.lstdescripcion.Location = New System.Drawing.Point(25, 208)
+        Me.lstdescripcion.Location = New System.Drawing.Point(25, 174)
         Me.lstdescripcion.Name = "lstdescripcion"
         Me.lstdescripcion.Size = New System.Drawing.Size(127, 387)
         Me.lstdescripcion.TabIndex = 12
@@ -205,7 +173,7 @@ Partial Public Class ventas
         'lstprecio
         '
         Me.lstprecio.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Regular)
-        Me.lstprecio.Location = New System.Drawing.Point(153, 208)
+        Me.lstprecio.Location = New System.Drawing.Point(153, 174)
         Me.lstprecio.Name = "lstprecio"
         Me.lstprecio.Size = New System.Drawing.Size(40, 387)
         Me.lstprecio.TabIndex = 13
@@ -214,7 +182,7 @@ Partial Public Class ventas
         'lstimporte
         '
         Me.lstimporte.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Regular)
-        Me.lstimporte.Location = New System.Drawing.Point(194, 208)
+        Me.lstimporte.Location = New System.Drawing.Point(194, 174)
         Me.lstimporte.Name = "lstimporte"
         Me.lstimporte.Size = New System.Drawing.Size(40, 387)
         Me.lstimporte.TabIndex = 14
@@ -223,7 +191,7 @@ Partial Public Class ventas
         'Label4
         '
         Me.Label4.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.Label4.Location = New System.Drawing.Point(69, 612)
+        Me.Label4.Location = New System.Drawing.Point(69, 578)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(84, 20)
         Me.Label4.Text = "Importe Total"
@@ -231,42 +199,24 @@ Partial Public Class ventas
         'lbimporte
         '
         Me.lbimporte.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.lbimporte.Location = New System.Drawing.Point(159, 612)
+        Me.lbimporte.Location = New System.Drawing.Point(159, 578)
         Me.lbimporte.Name = "lbimporte"
         Me.lbimporte.Size = New System.Drawing.Size(58, 20)
-        '
-        'Label5
-        '
-        Me.Label5.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Regular)
-        Me.Label5.Location = New System.Drawing.Point(154, 100)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(65, 20)
-        Me.Label5.Text = "Label5"
         '
         'lstcodigo
         '
         Me.lstcodigo.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Regular)
-        Me.lstcodigo.Location = New System.Drawing.Point(7, 638)
+        Me.lstcodigo.Location = New System.Drawing.Point(7, 604)
         Me.lstcodigo.Name = "lstcodigo"
         Me.lstcodigo.Size = New System.Drawing.Size(88, 41)
         Me.lstcodigo.TabIndex = 27
         Me.lstcodigo.TabStop = False
         Me.lstcodigo.Visible = False
         '
-        'lstcodigo2
-        '
-        Me.lstcodigo2.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Regular)
-        Me.lstcodigo2.Location = New System.Drawing.Point(97, 641)
-        Me.lstcodigo2.Name = "lstcodigo2"
-        Me.lstcodigo2.Size = New System.Drawing.Size(45, 41)
-        Me.lstcodigo2.TabIndex = 28
-        Me.lstcodigo2.TabStop = False
-        Me.lstcodigo2.Visible = False
-        '
         'Label6
         '
         Me.Label6.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.Label6.Location = New System.Drawing.Point(0, 195)
+        Me.Label6.Location = New System.Drawing.Point(0, 161)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(35, 10)
         Me.Label6.Text = "Cant."
@@ -274,7 +224,7 @@ Partial Public Class ventas
         'Label7
         '
         Me.Label7.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.Label7.Location = New System.Drawing.Point(26, 195)
+        Me.Label7.Location = New System.Drawing.Point(26, 161)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(60, 10)
         Me.Label7.Text = "Descripcion"
@@ -282,7 +232,7 @@ Partial Public Class ventas
         'Label8
         '
         Me.Label8.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.Label8.Location = New System.Drawing.Point(154, 195)
+        Me.Label8.Location = New System.Drawing.Point(154, 161)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(35, 10)
         Me.Label8.Text = "Prec."
@@ -290,7 +240,7 @@ Partial Public Class ventas
         'Label9
         '
         Me.Label9.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.Label9.Location = New System.Drawing.Point(195, 195)
+        Me.Label9.Location = New System.Drawing.Point(195, 161)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(35, 10)
         Me.Label9.Text = "Imp."
@@ -298,135 +248,104 @@ Partial Public Class ventas
         'Label10
         '
         Me.Label10.BackColor = System.Drawing.Color.Black
-        Me.Label10.Location = New System.Drawing.Point(-4, 186)
+        Me.Label10.Location = New System.Drawing.Point(-4, 152)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(240, 5)
         '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.Button1)
-        Me.Panel1.Controls.Add(Me.ComboBox2)
+        Me.Panel1.Controls.Add(Me.RadioButton2)
+        Me.Panel1.Controls.Add(Me.RadioButton1)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.ComboBox1)
         Me.Panel1.Controls.Add(Me.txtbusqueda)
         Me.Panel1.Location = New System.Drawing.Point(3, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(231, 58)
+        Me.Panel1.Size = New System.Drawing.Size(231, 62)
         '
-        'Button1
+        'RadioButton2
         '
-        Me.Button1.Location = New System.Drawing.Point(151, 33)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(69, 22)
-        Me.Button1.TabIndex = 60
-        Me.Button1.Text = "Nva.venta"
+        Me.RadioButton2.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Regular)
+        Me.RadioButton2.Location = New System.Drawing.Point(145, 41)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(75, 20)
+        Me.RadioButton2.TabIndex = 67
+        Me.RadioButton2.Text = "Descripción"
         '
-        'ComboBox2
+        'RadioButton1
         '
-        Me.ComboBox2.Enabled = False
-        Me.ComboBox2.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.ComboBox2.Location = New System.Drawing.Point(4, 3)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(46, 19)
-        Me.ComboBox2.TabIndex = 8
-        Me.ComboBox2.ValueMember = "codigocliente"
+        Me.RadioButton1.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Regular)
+        Me.RadioButton1.Location = New System.Drawing.Point(145, 23)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(75, 20)
+        Me.RadioButton1.TabIndex = 66
+        Me.RadioButton1.Text = "Cod.Barras"
         '
-        'Label11
+        'n
         '
-        Me.Label11.BackColor = System.Drawing.Color.Black
-        Me.Label11.Location = New System.Drawing.Point(-6, 125)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(240, 5)
+        Me.n.BaudRate = 57600
+        Me.n.PortName = "COM4"
         '
-        'Label12
+        'lstdescripcion2
         '
-        Me.Label12.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.Label12.Location = New System.Drawing.Point(194, 144)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(35, 10)
-        Me.Label12.Text = "Imp."
+        Me.lstdescripcion2.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Regular)
+        Me.lstdescripcion2.Location = New System.Drawing.Point(20, 67)
+        Me.lstdescripcion2.Name = "lstdescripcion2"
+        Me.lstdescripcion2.Size = New System.Drawing.Size(203, 24)
+        Me.lstdescripcion2.TabIndex = 61
         '
-        'Label13
+        'cmbtipoprecio
         '
-        Me.Label13.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.Label13.Location = New System.Drawing.Point(153, 144)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(35, 10)
-        Me.Label13.Text = "Prec."
+        Me.cmbtipoprecio.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Regular)
+        Me.cmbtipoprecio.Items.Add("REGULAR")
+        Me.cmbtipoprecio.Items.Add("MEDIO MAYOREO")
+        Me.cmbtipoprecio.Items.Add("MAYOREO")
+        Me.cmbtipoprecio.Location = New System.Drawing.Point(131, 95)
+        Me.cmbtipoprecio.Name = "cmbtipoprecio"
+        Me.cmbtipoprecio.Size = New System.Drawing.Size(92, 19)
+        Me.cmbtipoprecio.TabIndex = 62
         '
-        'Label14
+        'lstprecio1
         '
-        Me.Label14.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.Label14.Location = New System.Drawing.Point(25, 144)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(60, 10)
-        Me.Label14.Text = "Descripcion"
+        Me.lstprecio1.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Regular)
+        Me.lstprecio1.Location = New System.Drawing.Point(1, 95)
+        Me.lstprecio1.Name = "lstprecio1"
+        Me.lstprecio1.Size = New System.Drawing.Size(30, 13)
+        Me.lstprecio1.TabIndex = 63
         '
-        'Label15
+        'lstcantidad2
         '
-        Me.Label15.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.Label15.Location = New System.Drawing.Point(-1, 144)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(35, 10)
-        Me.Label15.Text = "Cant."
+        Me.lstcantidad2.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Regular)
+        Me.lstcantidad2.Location = New System.Drawing.Point(1, 67)
+        Me.lstcantidad2.Name = "lstcantidad2"
+        Me.lstcantidad2.Size = New System.Drawing.Size(18, 24)
+        Me.lstcantidad2.TabIndex = 73
         '
-        'lstimp4
+        'lstprecio2
         '
-        Me.lstimp4.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Regular)
-        Me.lstimp4.Location = New System.Drawing.Point(194, 157)
-        Me.lstimp4.Name = "lstimp4"
-        Me.lstimp4.Size = New System.Drawing.Size(38, 24)
-        Me.lstimp4.TabIndex = 45
-        Me.lstimp4.TabStop = False
+        Me.lstprecio2.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Regular)
+        Me.lstprecio2.Location = New System.Drawing.Point(37, 95)
+        Me.lstprecio2.Name = "lstprecio2"
+        Me.lstprecio2.Size = New System.Drawing.Size(30, 13)
+        Me.lstprecio2.TabIndex = 83
         '
         'lstprecio3
         '
         Me.lstprecio3.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Regular)
-        Me.lstprecio3.Location = New System.Drawing.Point(153, 157)
+        Me.lstprecio3.Location = New System.Drawing.Point(73, 95)
         Me.lstprecio3.Name = "lstprecio3"
-        Me.lstprecio3.Size = New System.Drawing.Size(38, 24)
-        Me.lstprecio3.TabIndex = 44
-        Me.lstprecio3.TabStop = False
+        Me.lstprecio3.Size = New System.Drawing.Size(30, 13)
+        Me.lstprecio3.TabIndex = 84
         '
-        'lstdescripcion3
+        'lstupc
         '
-        Me.lstdescripcion3.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Regular)
-        Me.lstdescripcion3.Location = New System.Drawing.Point(25, 157)
-        Me.lstdescripcion3.Name = "lstdescripcion3"
-        Me.lstdescripcion3.Size = New System.Drawing.Size(125, 24)
-        Me.lstdescripcion3.TabIndex = 43
-        Me.lstdescripcion3.TabStop = False
-        '
-        'lstcantidad3
-        '
-        Me.lstcantidad3.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Regular)
-        Me.lstcantidad3.Location = New System.Drawing.Point(0, 157)
-        Me.lstcantidad3.Name = "lstcantidad3"
-        Me.lstcantidad3.Size = New System.Drawing.Size(22, 24)
-        Me.lstcantidad3.TabIndex = 42
-        Me.lstcantidad3.TabStop = False
-        '
-        'Label16
-        '
-        Me.Label16.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.Label16.ForeColor = System.Drawing.Color.Red
-        Me.Label16.Location = New System.Drawing.Point(3, 132)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(154, 12)
-        Me.Label16.Text = "Ultimos Productos agregados"
-        '
-        'SP
-        '
-        Me.SP.BaudRate = 57600
-        Me.SP.PortName = "COM4"
-        '
-        'lblcantidad
-        '
-        Me.lblcantidad.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.lblcantidad.ForeColor = System.Drawing.Color.Red
-        Me.lblcantidad.Location = New System.Drawing.Point(174, 131)
-        Me.lblcantidad.Name = "lblcantidad"
-        Me.lblcantidad.Size = New System.Drawing.Size(45, 13)
+        Me.lstupc.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Regular)
+        Me.lstupc.Location = New System.Drawing.Point(159, 601)
+        Me.lstupc.Name = "lstupc"
+        Me.lstupc.Size = New System.Drawing.Size(45, 41)
+        Me.lstupc.TabIndex = 94
+        Me.lstupc.TabStop = False
+        Me.lstupc.Visible = False
         '
         'ventas
         '
@@ -434,25 +353,19 @@ Partial Public Class ventas
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.AutoScroll = True
         Me.ClientSize = New System.Drawing.Size(240, 268)
-        Me.Controls.Add(Me.lblcantidad)
-        Me.Controls.Add(Me.Label16)
-        Me.Controls.Add(Me.lstimp4)
+        Me.Controls.Add(Me.lstupc)
         Me.Controls.Add(Me.lstprecio3)
-        Me.Controls.Add(Me.lstdescripcion3)
-        Me.Controls.Add(Me.lstcantidad3)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label12)
-        Me.Controls.Add(Me.Label13)
-        Me.Controls.Add(Me.Label14)
-        Me.Controls.Add(Me.Label15)
-        Me.Controls.Add(Me.Label11)
+        Me.Controls.Add(Me.lstprecio2)
+        Me.Controls.Add(Me.lstcantidad2)
+        Me.Controls.Add(Me.lstprecio1)
+        Me.Controls.Add(Me.cmbtipoprecio)
+        Me.Controls.Add(Me.lstdescripcion2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.lstcodigo2)
         Me.Controls.Add(Me.lstcodigo)
         Me.Controls.Add(Me.lbimporte)
         Me.Controls.Add(Me.Label4)
@@ -460,15 +373,13 @@ Partial Public Class ventas
         Me.Controls.Add(Me.lstprecio)
         Me.Controls.Add(Me.lstdescripcion)
         Me.Controls.Add(Me.lstcantidad)
-        Me.Controls.Add(Me.lstprecio2)
-        Me.Controls.Add(Me.lstdescripcion2)
         Me.Controls.Add(Me.btnagregar)
         Me.Controls.Add(Me.txtcantidad)
         Me.Controls.Add(Me.Label3)
         Me.KeyPreview = True
         Me.Menu = Me.mainMenu1
         Me.Name = "ventas"
-        Me.Text = "Pedidos/Ventas"
+        Me.Text = "Ventas"
         Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
@@ -479,8 +390,6 @@ Partial Public Class ventas
     Friend WithEvents txtbusqueda As System.Windows.Forms.TextBox
     Friend WithEvents txtcantidad As System.Windows.Forms.TextBox
     Friend WithEvents btnagregar As System.Windows.Forms.Button
-    Friend WithEvents lstdescripcion2 As System.Windows.Forms.ListBox
-    Friend WithEvents lstprecio2 As System.Windows.Forms.ListBox
     Friend WithEvents lstcantidad As System.Windows.Forms.ListBox
     Friend WithEvents lstdescripcion As System.Windows.Forms.ListBox
     Friend WithEvents lstprecio As System.Windows.Forms.ListBox
@@ -489,12 +398,10 @@ Partial Public Class ventas
     Friend WithEvents lbimporte As System.Windows.Forms.Label
     Friend WithEvents MenuItem1 As System.Windows.Forms.MenuItem
     Friend WithEvents MenuItem2 As System.Windows.Forms.MenuItem
-    Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents MenuItem4 As System.Windows.Forms.MenuItem
     Friend WithEvents modifcant As System.Windows.Forms.MenuItem
     Friend WithEvents MenuItem3 As System.Windows.Forms.MenuItem
     Friend WithEvents lstcodigo As System.Windows.Forms.ListBox
-    Friend WithEvents lstcodigo2 As System.Windows.Forms.ListBox
     Friend WithEvents MenuItem6 As System.Windows.Forms.MenuItem
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
@@ -502,22 +409,17 @@ Partial Public Class ventas
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents Label12 As System.Windows.Forms.Label
-    Friend WithEvents Label13 As System.Windows.Forms.Label
-    Friend WithEvents Label14 As System.Windows.Forms.Label
-    Friend WithEvents Label15 As System.Windows.Forms.Label
-    Friend WithEvents lstimp4 As System.Windows.Forms.ListBox
-    Friend WithEvents lstprecio3 As System.Windows.Forms.ListBox
-    Friend WithEvents lstdescripcion3 As System.Windows.Forms.ListBox
-    Friend WithEvents lstcantidad3 As System.Windows.Forms.ListBox
-    Friend WithEvents Label16 As System.Windows.Forms.Label
-    Friend WithEvents SP As System.IO.Ports.SerialPort
+    Friend WithEvents n As System.IO.Ports.SerialPort
 
 
-    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents MenuItem5 As System.Windows.Forms.MenuItem
     Friend WithEvents MenuItem7 As System.Windows.Forms.MenuItem
-    Friend WithEvents lblcantidad As System.Windows.Forms.Label
+    Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
+    Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
+    Friend WithEvents lstdescripcion2 As System.Windows.Forms.ListBox
+    Friend WithEvents cmbtipoprecio As System.Windows.Forms.ComboBox
+    Friend WithEvents lstprecio1 As System.Windows.Forms.ListBox
+    Friend WithEvents lstcantidad2 As System.Windows.Forms.ListBox
+    Friend WithEvents lstprecio2 As System.Windows.Forms.ListBox
+    Friend WithEvents lstprecio3 As System.Windows.Forms.ListBox
+    Friend WithEvents lstupc As System.Windows.Forms.ListBox
 End Class

@@ -301,7 +301,6 @@ C:\Users\Home\Desktop\DistEdycka\Edycka\ptoventa\ptoventa\bin\Debug\ptoventa.pdb
 C:\Users\Home\Desktop\DistEdycka\Edycka\ptoventa\ptoventa\bin\Debug\ptoventa.xml
 C:\Users\Home\Desktop\DistEdycka\Edycka\ptoventa\ptoventa\bin\Debug\Microsoft.WindowsMobile.Forms.dll
 C:\Users\Home\Desktop\DistEdycka\Edycka\ptoventa\ptoventa\bin\Debug\System.Data.SqlClient.dll
-C:\Users\Home\Desktop\DistEdycka\Edycka\ptoventa\ptoventa\bin\Debug\ZSDK_API.dll
 C:\Users\Home\Desktop\DistEdycka\Edycka\ptoventa\ptoventa\bin\Debug\Microsoft.WindowsMobile.PocketOutlook.dll
 C:\Users\Home\Desktop\DistEdycka\Edycka\ptoventa\ptoventa\bin\Debug\Microsoft.WindowsMobile.dll
 C:\Users\Home\Desktop\DistEdycka\Edycka\ptoventa\ptoventa\bin\Debug\Microsoft.WindowsMobile.PocketOutlook.xml
@@ -309,7 +308,6 @@ C:\Users\Home\Desktop\DistEdycka\Edycka\ptoventa\ptoventa\bin\Debug\Microsoft.Wi
 C:\Users\Home\Desktop\DistEdycka\Edycka\ptoventa\ptoventa\bin\Debug\Microsoft.WindowsMobile.Forms.xml
 C:\Users\Home\Desktop\DistEdycka\Edycka\ptoventa\ptoventa\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Home\Desktop\DistEdycka\Edycka\ptoventa\ptoventa\obj\Debug\ptoventa.clientes.resources
-C:\Users\Home\Desktop\DistEdycka\Edycka\ptoventa\ptoventa\obj\Debug\ptoventa.compras.resources
 C:\Users\Home\Desktop\DistEdycka\Edycka\ptoventa\ptoventa\obj\Debug\ptoventa.corte.resources
 C:\Users\Home\Desktop\DistEdycka\Edycka\ptoventa\ptoventa\obj\Debug\ptoventa.modifproductos.resources
 C:\Users\Home\Desktop\DistEdycka\Edycka\ptoventa\ptoventa\obj\Debug\ptoventa.Resources.resources
@@ -319,3 +317,10 @@ C:\Users\Home\Desktop\DistEdycka\Edycka\ptoventa\ptoventa\obj\Debug\ptoventa.vbp
 C:\Users\Home\Desktop\DistEdycka\Edycka\ptoventa\ptoventa\obj\Debug\ptoventa.exe
 C:\Users\Home\Desktop\DistEdycka\Edycka\ptoventa\ptoventa\obj\Debug\ptoventa.xml
 C:\Users\Home\Desktop\DistEdycka\Edycka\ptoventa\ptoventa\obj\Debug\ptoventa.pdb
+C:\Users\Home\Desktop\DistEdycka\Edycka\ptoventa\ptoventa\obj\Debug\ptoventa.Carga.resources
+C:\Users\Home\Desktop\DistEdycka\Edycka\ptoventa\ptoventa\bin\Debug\favicon (3).ico
+C:\Users\Home\Desktop\DistEdycka\Edycka\ptoventa\ptoventa\bin\Debug\Symbol.xml
+C:\Users\Home\Desktop\DistEdycka\Edycka\ptoventa\ptoventa\bin\Debug\Symbol.Barcode.dll
+C:\Users\Home\Desktop\DistEdycka\Edycka\ptoventa\ptoventa\bin\Debug\Symbol.Barcode.xml
+C:\Users\Home\Desktop\DistEdycka\Edycka\ptoventa\ptoventa\bin\Debug\Symbol.dll
+C:\Users\Home\Desktop\DistEdycka\Edycka\ptoventa\ptoventa\bin\Debug\ptoventa.exe.config

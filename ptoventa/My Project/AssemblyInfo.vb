@@ -8,11 +8,11 @@ Imports System.Runtime.InteropServices
 
 ' Revisar los valores de los atributos del ensamblado
 
-<Assembly: AssemblyTitle("ptoventa")>
+<Assembly: AssemblyTitle("Distribuidora Edycka")> 
 <Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("Microsoft")>
-<Assembly: AssemblyProduct("ptoventa")>
-<Assembly: AssemblyCopyright("Copyright © Microsoft 2011")>
+<Assembly: AssemblyCompany("")> 
+<Assembly: AssemblyProduct("")> 
+<Assembly: AssemblyCopyright("")> 
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: CLSCompliant(True)>

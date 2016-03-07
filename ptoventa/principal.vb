@@ -1,9 +1,7 @@
-﻿Public Class principal
-
+﻿Imports System.Windows.Forms
+Public Class principal
     Private Sub MenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem1.Click
-        Me.Close()
-        corte.Close()
-        ventas.Close()
+        Application.Exit()
     End Sub
 
     Private Sub btnventas_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnventas.Click
@@ -17,7 +15,6 @@
         corte.ShowDialog()
         Me.Close()
     End Sub
-
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         Dim modifproductos As New modifproductos
         modifproductos.ShowDialog()
@@ -26,20 +23,19 @@
     Private Sub principal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Label1.Text = Date.Today
     End Sub
-
-    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Dim compras As New compras
-        compras.ShowDialog()
-        Me.Close()
-    End Sub
-
     Private Sub Button2_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
         Dim Clientes As New clientes
-        clientes.ShowDialog()
+        Clientes.ShowDialog()
         Me.Close()
     End Sub
 
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
         generarrespaldo()
+    End Sub
+
+    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
+        Dim Carga As New Carga
+        Carga.ShowDialog()
+        Me.Close()
     End Sub
 End Class

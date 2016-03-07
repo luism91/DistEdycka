@@ -22,8 +22,6 @@ Partial Public Class corte
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Me.mainMenu1 = New System.Windows.Forms.MainMenu
-        Me.MenuItem2 = New System.Windows.Forms.MenuItem
-        Me.MenuItem3 = New System.Windows.Forms.MenuItem
         Me.MenuItem1 = New System.Windows.Forms.MenuItem
         Me.MenuItem5 = New System.Windows.Forms.MenuItem
         Me.MenuItem4 = New System.Windows.Forms.MenuItem
@@ -46,17 +44,7 @@ Partial Public Class corte
         '
         'mainMenu1
         '
-        Me.mainMenu1.MenuItems.Add(Me.MenuItem2)
         Me.mainMenu1.MenuItems.Add(Me.MenuItem1)
-        '
-        'MenuItem2
-        '
-        Me.MenuItem2.MenuItems.Add(Me.MenuItem3)
-        Me.MenuItem2.Text = "Saldos"
-        '
-        'MenuItem3
-        '
-        Me.MenuItem3.Text = "Liquidar"
         '
         'MenuItem1
         '
@@ -232,10 +220,8 @@ Partial Public Class corte
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents MenuItem1 As System.Windows.Forms.MenuItem
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents MenuItem2 As System.Windows.Forms.MenuItem
     Friend WithEvents lstimporte As System.Windows.Forms.ListBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents MenuItem3 As System.Windows.Forms.MenuItem
     Friend WithEvents MenuItem5 As System.Windows.Forms.MenuItem
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents lbltotal As System.Windows.Forms.Label
