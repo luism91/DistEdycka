@@ -187,11 +187,17 @@ Public Class modifproductos
                 MsgBox("Los datos no están completos!", MsgBoxStyle.OkOnly + MsgBoxStyle.Critical, "Error")
             End If
         Else
-            If txtupc.Text <> Nothing And txtdescripcion.Text <> Nothing And txtprecio.Text <> Nothing And txtprecio1.Text <> Nothing And txtprecio2.Text <> Nothing Then
+            If txtdescripcion.Text <> Nothing And txtprecio.Text <> Nothing And txtprecio1.Text <> Nothing And txtprecio2.Text <> Nothing Then
                 If MsgBox("Deseas agregar el producto?", MsgBoxStyle.OkCancel, "Productos") = MsgBoxResult.Ok Then
                     Try
+                        Dim upc As String
+                        If txtupc.Text = Nothing Then
+                            upc = 0
+                        Else
+                            upc = txtupc.Text
+                        End If
                         cmd.Connection = conn
-                        cmd.CommandText = "INSERT INTO productos(upc,descripcion,precio,precio1,precio2) VALUES('" & txtupc.Text & "','" & UCase(txtdescripcion.Text) & "','" & Val(txtprecio.Text) & "',,'" & Val(txtprecio1.Text) & "',,'" & Val(txtprecio2.Text) & "')"
+                        cmd.CommandText = "INSERT INTO productos(upc,descripcion,precio,precio1,precio2) VALUES('" & upc & "','" & UCase(txtdescripcion.Text) & "','" & Val(txtprecio.Text) & "','" & Val(txtprecio1.Text) & "','" & Val(txtprecio2.Text) & "')"
                         cmd.ExecuteNonQuery()
                         MsgBox("Producto agregado con exito", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Modificar Productos")
                         limpiartablas()
@@ -216,10 +222,10 @@ Public Class modifproductos
 
     Private Sub MenuItem5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem5.Click
 
-        If MsgBox("Deseas eliminar el producto seleccionado?", MsgBoxStyle.OkCancel, "Modificacion") = MsgBoxResult.Ok Then
+        If MsgBox("Deseas eliminar el producto seleccionado?", MsgBoxStyle.YesNo, "Modificacion") = MsgBoxResult.Yes Then
             Try
                 cmd.Connection = conn
-                cmd.CommandText = "DELETE FROM productos WHERE codigo = '" & lstcodigo.Text & "' "
+                cmd.CommandText = "DELETE FROM productos WHERE codigo = '" & txtcodigo.Text & "' "
                 cmd.ExecuteNonQuery()
                 limpiartablas()
                 poblartablas(3, 0)
@@ -243,6 +249,7 @@ Public Class modifproductos
         txtprecio.Text = Nothing
         txtprecio1.Text = Nothing
         txtprecio2.Text = Nothing
+        txtcodigo.Text = Nothing
         txtdescripcion.Focus()
     End Sub
 

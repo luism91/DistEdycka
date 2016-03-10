@@ -91,7 +91,7 @@ Public Class ventas
             fila = 20
             DataString.Append("! U1 SETLP 5 1 70" & vbCrLf)
             DataString.Append("! U1 XY 10 20" & vbCrLf)
-            DataString.Append("========  DISTRIBUIDORA EDYCKA  ========" & vbCrLf)
+            DataString.Append("========  DISTRIBUIDORA EDCYKA  ========" & vbCrLf)
             DataString.Append("! U1 SETLP 5 0 35" & vbCrLf)
             DataString.Append("! U1 XY 10 70" & vbCrLf)
             DataString.Append("MARCO ANTONIO FERNANDEZ CASTILLO" & vbCrLf)

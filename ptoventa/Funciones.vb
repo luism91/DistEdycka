@@ -94,7 +94,7 @@ Module Funciones
         ElseIf opt = 4 Then
             'Evaluar si es modo venta o modo de visualizacion de clientes
             Try
-                Dim query1 As String = "SELECT * FROM clientes"
+                Dim query1 As String = "SELECT * FROM clientes order by codigocliente ASC"
                 Dim query2 As String = "SELECT * FROM clientes where grupocliente= 0 OR grupocliente = " & diasemana & "  order by codigocliente ASC"
                 If SellModeClient = False Then
                     Dim dataCargarClientes As New SqlCeDataAdapter(query1, conn)
