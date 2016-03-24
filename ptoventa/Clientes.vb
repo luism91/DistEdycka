@@ -4,32 +4,53 @@ Public Class clientes
 
     Dim modoedicion As Boolean
     Private Sub limpiarcampos()
-        txtcodigo.Text = ""
-        txtnombre.Text = ""
-        txtlocalidad.Text = ""
-        cmbdiaruta.SelectedIndex = 0
+        'txtcodigo.Text = ""
+        'txtnombre.Text = ""
+        'txtlocalidad.Text = ""
+        'cmbdiaruta.SelectedIndex = 0
         txtbusqueda.Focus()
         txtbusqueda.Text = ""
+        txtnombre.Enabled = False
+        txtlocalidad.Enabled = False
+        cmbdiaruta.Enabled = False
     End Sub
     Private Sub clientes_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'Private Sub lstdescripcion_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles lstdescripcion.SelectedIndexChanged
+        '    txtupc.Text = lstcodigo.Text
+        '    txtcodigo.Text = lstdescripcion.SelectedValue
+        '    txtdescripcion.Text = lstdescripcion.Text
+        '    txtprecio.Text = lstprecio.Text
+        '    txtprecio1.Text = lstprecio1.Text
+        '    txtprecio2.Text = lstprecio2.Text
+        'End Sub
 
+        'Private Sub lstdescripcion_SelectedValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles lstdescripcion.SelectedValueChanged
+
+        '    lstcodigo.SelectedIndex = lstdescripcion.SelectedIndex
+        '    lstprecio.SelectedIndex = lstdescripcion.SelectedIndex
+        '    lstprecio1.SelectedIndex = lstdescripcion.SelectedIndex
+        '    lstprecio2.SelectedIndex = lstdescripcion.SelectedIndex
+        'End Sub
         If conn.State = ConnectionState.Closed Then
             conn.Open()
         End If
         SellModeClient = False
 
         poblartablas(4, 0)
-        lstnombre.DataSource = tablaclientes
-        lstnombre.DisplayMember = "nombrecliente"
 
-        lstcodigo.DataSource = tablaclientes
         lstcodigo.DisplayMember = "codigocliente"
+        lstcodigo.ValueMember = "codigocliente"
+        lstcodigo.DataSource = tablaclientes
 
-        lstlocalidad.DataSource = tablaclientes
         lstlocalidad.DisplayMember = "localidad"
+        lstlocalidad.DataSource = tablaclientes
 
-        lstdiaruta.DataSource = tablaclientes
         lstdiaruta.DisplayMember = "grupocliente"
+        lstdiaruta.DataSource = tablaclientes
+
+        lstnombre.DisplayMember = "nombrecliente"
+        lstnombre.DataSource = tablaclientes
+        lstnombre.ValueMember = "codigocliente"
 
     End Sub
 
@@ -39,11 +60,13 @@ Public Class clientes
 
     Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btneditar.Click
         modoedicion = True
-        txtcodigo.Text = lstcodigo.Text
-        txtnombre.Text = lstnombre.Text
-        txtlocalidad.Text = lstlocalidad.Text
-        cmbdiaruta.SelectedIndex = CInt(lstdiaruta.Text) - 1
-
+        'txtcodigo.Text = lstcodigo.Text
+        'txtnombre.Text = lstnombre.Text
+        'txtlocalidad.Text = lstlocalidad.Text
+        'cmbdiaruta.SelectedIndex = CInt(lstdiaruta.Text) - 1
+        txtnombre.Enabled = True
+        txtlocalidad.Enabled = True
+        cmbdiaruta.Enabled = True
     End Sub
 
     Private Sub Button2_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnguardar.Click
@@ -103,7 +126,13 @@ Public Class clientes
 
     Private Sub MenuItem5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem5.Click
 
-        limpiarcampos()
+        txtcodigo.Text = ""
+        txtnombre.Text = ""
+        txtlocalidad.Text = ""
+        txtnombre.Enabled = True
+        txtlocalidad.Enabled = True
+        cmbdiaruta.Enabled = True
+        cmbdiaruta.SelectedIndex = 0
         txtnombre.Focus()
         modoedicion = False
     End Sub
@@ -116,5 +145,38 @@ Public Class clientes
         Dim principal As New principal
         principal.ShowDialog()
         Me.Close()
+    End Sub
+
+    Private Sub lstnombre_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles lstnombre.SelectedIndexChanged
+        txtcodigo.Text = lstcodigo.Text
+        txtlocalidad.Text = lstlocalidad.Text
+        cmbdiaruta.SelectedIndex = CInt(lstdiaruta.Text) - 1
+        txtnombre.Text = lstnombre.Text
+    End Sub
+
+
+
+    'Private Sub lstdescripcion_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles lstdescripcion.SelectedIndexChanged
+    '    txtupc.Text = lstcodigo.Text
+    '    txtcodigo.Text = lstdescripcion.SelectedValue
+    '    txtdescripcion.Text = lstdescripcion.Text
+    '    txtprecio.Text = lstprecio.Text
+    '    txtprecio1.Text = lstprecio1.Text
+    '    txtprecio2.Text = lstprecio2.Text
+    'End Sub
+
+    'Private Sub lstdescripcion_SelectedValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles lstdescripcion.SelectedValueChanged
+
+    '    lstcodigo.SelectedIndex = lstdescripcion.SelectedIndex
+    '    lstprecio.SelectedIndex = lstdescripcion.SelectedIndex
+    '    lstprecio1.SelectedIndex = lstdescripcion.SelectedIndex
+    '    lstprecio2.SelectedIndex = lstdescripcion.SelectedIndex
+    'End Sub
+
+    Private Sub lstnombre_SelectedValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles lstnombre.SelectedValueChanged
+        lstcodigo.SelectedIndex = lstnombre.SelectedIndex
+        lstlocalidad.SelectedIndex = lstnombre.SelectedIndex
+        lstdiaruta.SelectedIndex = lstnombre.SelectedIndex
+
     End Sub
 End Class

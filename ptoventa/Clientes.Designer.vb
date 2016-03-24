@@ -124,6 +124,7 @@ Partial Public Class clientes
         '
         'txtnombre
         '
+        Me.txtnombre.Enabled = False
         Me.txtnombre.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Regular)
         Me.txtnombre.Location = New System.Drawing.Point(51, 190)
         Me.txtnombre.MaxLength = 50
@@ -228,6 +229,7 @@ Partial Public Class clientes
         '
         'txtlocalidad
         '
+        Me.txtlocalidad.Enabled = False
         Me.txtlocalidad.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Regular)
         Me.txtlocalidad.Location = New System.Drawing.Point(51, 212)
         Me.txtlocalidad.MaxLength = 50
@@ -254,6 +256,7 @@ Partial Public Class clientes
         '
         'cmbdiaruta
         '
+        Me.cmbdiaruta.Enabled = False
         Me.cmbdiaruta.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
         Me.cmbdiaruta.Items.Add("- DIA RUTA -")
         Me.cmbdiaruta.Items.Add("LUNES")

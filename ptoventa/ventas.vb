@@ -100,49 +100,58 @@ Public Class ventas
             DataString.Append("! U1 XY 10 130" & vbCrLf)
             DataString.Append("RINCONES #155 COL.CTM CUAUH.,CHIH." & vbCrLf)
             DataString.Append("! U1 XY 10 160" & vbCrLf)
+            DataString.Append("TEL.582-7897 // Cel. 625-121-0460" & vbCrLf)
+            DataString.Append("! U1 XY 10 190" & vbCrLf)
             DataString.Append("========================================" & vbCrLf)
             'Datos Cliente
-            DataString.Append("! U1 XY 10 180" & vbCrLf)
-            DataString.Append("Cliente: " & ComboBox1.Text & vbCrLf)
             DataString.Append("! U1 XY 10 210" & vbCrLf)
-            DataString.Append(currentDate.ToString(dateString) & vbCrLf)
+            DataString.Append("Cliente: " & ComboBox1.Text & vbCrLf)
             DataString.Append("! U1 XY 10 240" & vbCrLf)
+            tablaclientes.RowFilter = "codigocliente = " & ComboBox1.SelectedValue & ""
+            Dim localidad As String = tablaclientes(0)(3).ToString()
+            If localidad.Equals(DBNull.Value) Or localidad.Equals(Nothing) Or localidad = "" Then
+                localidad = "N/A"
+            End If
+            DataString.Append("Localidad: " & localidad & vbCrLf)
+            DataString.Append("! U1 XY 10 270" & vbCrLf)
+            DataString.Append(currentDate.ToString(dateString) & vbCrLf)
+            DataString.Append("! U1 XY 10 300" & vbCrLf)
             DataString.Append(tiporecibo & vbCrLf)
             DataString.Append("! U1 SETLP 7 0 20" & vbCrLf)
-            DataString.Append("! U1 XY 360 240" & vbCrLf)
+            DataString.Append("! U1 XY 360 300" & vbCrLf)
             DataString.Append("Folio:" & vbCrLf)
-            DataString.Append("! U1 XY 440 240" & vbCrLf)
+            DataString.Append("! U1 XY 440 300" & vbCrLf)
             DataString.Append(codventa & vbCrLf)
-            DataString.Append("! U1 XY 10 270" & vbCrLf)
+            DataString.Append("! U1 XY 10 330" & vbCrLf)
             DataString.Append("***********************************************" & vbCrLf)
-            DataString.Append("! U1 XY 0 300" & vbCrLf)
-            DataString.Append("Cant." & vbCrLf)
-            DataString.Append("! U1 XY 65 300" & vbCrLf)
+            DataString.Append("! U1 XY 0 360" & vbCrLf)
+            DataString.Append("C." & vbCrLf)
+            DataString.Append("! U1 XY 25 360" & vbCrLf)
             DataString.Append("Descripcion" & vbCrLf)
-            DataString.Append("! U1 XY 395 300" & vbCrLf)
+            DataString.Append("! U1 XY 395 360" & vbCrLf)
             DataString.Append("Prec." & vbCrLf)
-            DataString.Append("! U1 XY 490 300" & vbCrLf)
+            DataString.Append("! U1 XY 490 360" & vbCrLf)
             DataString.Append("Imp." & vbCrLf)
 
-            DataString.Append("! U1 SETLP 0 2 20" & vbCrLf)
+            DataString.Append("! U1 SETLP 7 0 20" & vbCrLf)
             'cambiar
-            fila = 330
+            fila = 390
             For Me.elementos = 0 To (lstdescripcion.Items.Count - 1)
                 lstprecio.SelectedIndex = elementos
                 lstdescripcion.SelectedIndex = elementos
                 lstcantidad.SelectedIndex = elementos
                 lstimporte.SelectedIndex = elementos
 
-                DataString.Append("! U1 XY 5 " & fila & "" & vbCrLf)
+                DataString.Append("! U1 XY 0 " & fila & "" & vbCrLf)
                 DataString.Append("" & lstcantidad.Text & "" & vbCrLf)
-                DataString.Append("! U1 XY 70 " & fila & "" & vbCrLf)
+                DataString.Append("! U1 XY 30 " & fila & "" & vbCrLf)
                 DataString.Append("" & lstdescripcion.Text & "" & vbCrLf)
                 DataString.Append("! U1 XY 395 " & fila & "" & vbCrLf)
                 DataString.Append("" & lstprecio.Text & "" & vbCrLf)
                 DataString.Append("! U1 XY 490 " & fila & "" & vbCrLf)
                 DataString.Append("" & lstimporte.Text & "" & vbCrLf)
 
-                fila = fila + 20
+                fila = fila + 27
             Next Me.elementos
 
             fila = fila + 40
@@ -419,9 +428,9 @@ Public Class ventas
         Try
             SellModeClient = True
             ProductosCarga()
-            diasemana = 2
+            diasemana = Date.Now.DayOfWeek + 1
+            'diasemana = 2
             poblartablas(4, 0)
-
 
             ComboBox1.ValueMember = "codigocliente"
             ComboBox1.DisplayMember = "nombrecliente"
@@ -513,20 +522,30 @@ Public Class ventas
             Dim cantUpdate As Integer
             cantUpdate = InputBox("Introduce la cantidad deseada de " & vbCrLf & "[ " & lstdescripcion.Text & " ]", "Modificar Cantidad")
             'Actualizar la cantidad de carga
-            cmd.Connection = conn
-            cmd.CommandText = "UPDATE detalle_carga SET cantidad= cantidad + " & cantUpdate & " WHERE codigo= " & codigo & ""
-            cmd.ExecuteNonQuery()
+            Dim OldAmount, NewAmount As Integer
+            OldAmount = lstcantidad.Items.Item(lstcantidad.SelectedIndex)
+            NewAmount = cantUpdate
 
-            'Actualizar la cantidad del detalle de la nota
-            cmd.Connection = conn
-            cmd.CommandText = "UPDATE detalle_ventas SET cantidad = '" & cantUpdate & "' WHERE codigoventa ='" & codventa & "' AND codigo ='" & lstcodigo.Text & "'"
-            cmd.ExecuteNonQuery()
-            lstcantidad.Items.Item(lstcantidad.SelectedIndex) = cantUpdate
-            cantinput = 0
-            preimporte = Val(lstprecio.Text) * Val(lstcantidad.Text)
-            lstimporte.Items.Item(lstcantidad.SelectedIndex) = (Format(CDec(preimporte), ".00"))
-            poblartablas(2, 0)
-            ProductosCarga()
+            If NewAmount < OldAmount Then
+                NewAmount = OldAmount - NewAmount
+
+                cmd.Connection = conn
+                cmd.CommandText = "UPDATE detalle_carga SET cantidad= cantidad + " & NewAmount & " WHERE codigo= " & lstcodigo.Text & ""
+                cmd.ExecuteNonQuery()
+
+                'Actualizar la cantidad del detalle de la nota
+                cmd.Connection = conn
+                cmd.CommandText = "UPDATE detalle_ventas SET cantidad = '" & cantUpdate & "' WHERE codigoventa ='" & codventa & "' AND codigo ='" & lstcodigo.Text & "'"
+                cmd.ExecuteNonQuery()
+                lstcantidad.Items.Item(lstcantidad.SelectedIndex) = cantUpdate
+                cantinput = 0
+                preimporte = Val(lstprecio.Text) * Val(lstcantidad.Text)
+                lstimporte.Items.Item(lstcantidad.SelectedIndex) = (Format(CDec(preimporte), ".00"))
+                poblartablas(2, 0)
+                ProductosCarga()
+            Else
+                MsgBox("La cantidad nueva es mayor a la antigua!", MsgBoxStyle.OkOnly + MsgBoxStyle.Critical)
+            End If
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.OkOnly + MsgBoxStyle.Critical)
         End Try

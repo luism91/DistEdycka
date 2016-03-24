@@ -46,8 +46,12 @@ Public Class Carga
 
         'Obtener el indice maximo de carga
         poblartablas(5, 0)
-        'Cargar productos de la ultima carga
-        CodigoCargaVentas = tablaProdCarga(0)(0)
+        'Cargar productos de la ultima carga 
+        Try
+            CodigoCargaVentas = tablaProdCarga(0)(0)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.OkOnly + MsgBoxStyle.Critical)
+        End Try
         'Asociar tabla de carga con listas
         poblartablas(6, 0)
 
@@ -115,7 +119,17 @@ Public Class Carga
             Scanning.StartRead()
 
         Else
-            
+            ' Create a new delegate to handle scan notifications
+            Me.ReaderFormEventHandler = New System.EventHandler(AddressOf MyReader_ReadNotify)
+
+            ' Set the event handler of the Scanning class to our delegate
+            Scanning.MyEventHandler = ReaderFormEventHandler
+
+            ' Attach to activate and deactivate events
+            AddHandler Me.Activated, New System.EventHandler(AddressOf Carga_Activated)
+
+            ' Start a read on the reader
+            Scanning.StartRead()
 
             Return
 

@@ -206,12 +206,11 @@ Partial Public Class ventas
         'lstcodigo
         '
         Me.lstcodigo.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Regular)
-        Me.lstcodigo.Location = New System.Drawing.Point(7, 604)
+        Me.lstcodigo.Location = New System.Drawing.Point(3, 567)
         Me.lstcodigo.Name = "lstcodigo"
-        Me.lstcodigo.Size = New System.Drawing.Size(88, 41)
+        Me.lstcodigo.Size = New System.Drawing.Size(43, 67)
         Me.lstcodigo.TabIndex = 27
         Me.lstcodigo.TabStop = False
-        Me.lstcodigo.Visible = False
         '
         'Label6
         '
